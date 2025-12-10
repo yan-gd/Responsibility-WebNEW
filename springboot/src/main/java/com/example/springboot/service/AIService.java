@@ -1,6 +1,7 @@
 package com.example.springboot.service;
 
 import com.example.springboot.dto.ChatRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,9 @@ public class AIService {
     @Value("${dashscope.api.key:}")
     private String apiKey;
 
+    @Autowired
+    private DriverService driverService;
+
     private static final String BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions";
     private static final String MODEL = "qwen-vl-plus";
 
@@ -40,10 +44,33 @@ public class AIService {
 
         ArrayNode messages = objectMapper.createArrayNode();
 
-        // 添加系统提示
+        // 获取司机数据摘要
+        String driverDataSummary = "";
+        try {
+            driverDataSummary = driverService.generateDriverDataSummary();
+        } catch (Exception e) {
+            driverDataSummary = "无法获取司机数据库信息。";
+            e.printStackTrace();
+        }
+
+        // 添加系统提示（包含数据库信息）
         ObjectNode systemMessage = objectMapper.createObjectNode();
         systemMessage.put("role", "system");
-        systemMessage.put("content", "你是城市配送货运驾驶员适岗状态监管平台的智能助手。你可以帮助用户了解平台功能、查询驾驶员信息、解答关于货运监控和安全管理的问题。请用专业、友好的语气回答问题。");
+        String systemPrompt = """
+你是城市配送货运驾驶员适岗状态监管平台的智能助手。你可以帮助用户了解平台功能、查询驾驶员信息、解答关于货运监控和安全管理的问题。
+
+以下是当前数据库中的司机信息，请根据这些数据回答用户的问题：
+
+%s
+
+请注意：
+1. 当用户询问某个司机的信息时，请从上述数据中查找并回答。
+2. 当用户询问统计数据（如有多少疲劳司机、超速司机等）时，请根据上述数据进行统计回答。
+3. 如果用户询问的司机不在数据库中，请如实告知。
+4. 请用专业、友好的语气回答问题，回答要简洁明了。
+""".formatted(driverDataSummary);
+        
+        systemMessage.put("content", systemPrompt);
         messages.add(systemMessage);
 
         // 添加历史消息

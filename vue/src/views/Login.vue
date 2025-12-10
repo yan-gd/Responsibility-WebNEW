@@ -54,7 +54,7 @@
       <div class="content-wrapper">
         <div class="left-content">
           <h3>欢迎来到智能监管平台！</h3>
-          <div class="link-item">Qwen-plus文本理解大模型以上线</div>
+          <div class="link-item">Qwen-plus文本理解大模型已经上线</div>
           <div class="link-item">AI助力驾驶员数据的精准查询</div>
           <div class="link-item">如果你有什么好的想法欢迎加入频道、群组交流</div>
         </div>
@@ -63,10 +63,14 @@
         <div class="login-card-container">
           <div class="login-card">
             <h3 class="card-title">Responsibility-Web</h3>
-            <div class="card-desc">
-              <p>Github</p>
+            <div class>
+                <p>
+                  <a href="https://github.com/yan-gd/Responsibility-WebNEW" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none;position: relative;left: 110px;">
+                    <img :src="githubIcon" alt="GitHub" style="width: 20px; height: 20px;" />
+                    <span>Github</span>
+                  </a>
+                </p>
             </div>
-            
             <form @submit.prevent="handleLogin" class="login-form">
               <div class="input-row">
                 <input type="text" v-model="username" placeholder="用户名" />
@@ -90,6 +94,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import searchIcon from '../assets/images/search.png'
+import githubIcon from '../assets/images/github.png'
 
 const router = useRouter()
 const username = ref('')
