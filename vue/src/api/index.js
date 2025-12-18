@@ -29,6 +29,119 @@ export async function chatWithAI(message, history = []) {
 }
 
 /**
+ * 获取驾驶员列表
+ * @param {string} name - 驾驶员姓名（可选）
+ * @returns {Promise<Array>} 驾驶员列表
+ */
+export async function getDrivers(name = '') {
+  const url = name ? `${BASE_URL}/driver/search?name=${encodeURIComponent(name)}` : `${BASE_URL}/driver/list`
+  const response = await fetch(url)
+
+  if (!response.ok) {
+    throw new Error(`获取驾驶员列表失败: ${response.status}`)
+  }
+
+  const result = await response.json()
+  return result.data || []
+}
+
+/**
+ * 根据ID获取驾驶员详情
+ * @param {number} id - 驾驶员ID
+ * @returns {Promise<Object>} 驾驶员信息
+ */
+export async function getDriverById(id) {
+  const response = await fetch(`${BASE_URL}/driver/${id}`)
+
+  if (!response.ok) {
+    throw new Error(`获取驾驶员详情失败: ${response.status}`)
+  }
+
+  const result = await response.json()
+  return result.data
+}
+
+/**
+ * 新增驾驶员
+ * @param {Object} driver - 驾驶员信息
+ * @returns {Promise<Object>} 响应结果
+ */
+export async function addDriver(driver) {
+  const response = await fetch(`${BASE_URL}/driver/add`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(driver)
+  })
+
+  if (!response.ok) {
+    throw new Error(`添加驾驶员失败: ${response.status}`)
+  }
+
+  return await response.json()
+}
+
+/**
+ * 更新驾驶员信息
+ * @param {Object} driver - 驾驶员信息
+ * @returns {Promise<Object>} 响应结果
+ */
+export async function updateDriver(driver) {
+  const response = await fetch(`${BASE_URL}/driver/update`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(driver)
+  })
+
+  if (!response.ok) {
+    throw new Error(`更新驾驶员失败: ${response.status}`)
+  }
+
+  return await response.json()
+}
+
+/**
+ * 删除驾驶员
+ * @param {number} id - 驾驶员ID
+ * @returns {Promise<Object>} 响应结果
+ */
+export async function deleteDriver(id) {
+  const response = await fetch(`${BASE_URL}/driver/${id}`, {
+    method: 'DELETE'
+  })
+
+  if (!response.ok) {
+    throw new Error(`删除驾驶员失败: ${response.status}`)
+  }
+
+  return await response.json()
+}
+
+/**
+ * 批量删除驾驶员
+ * @param {Array<number>} ids - 驾驶员ID数组
+ * @returns {Promise<Object>} 响应结果
+ */
+export async function batchDeleteDrivers(ids) {
+  const response = await fetch(`${BASE_URL}/driver/batch`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(ids)
+  })
+
+  if (!response.ok) {
+    throw new Error(`批量删除驾驶员失败: ${response.status}`)
+  }
+
+  return await response.json()
+}
+
+/**
  * AI 流式聊天请求
  * @param {string} message - 用户消息
  * @param {Array} history - 历史消息记录

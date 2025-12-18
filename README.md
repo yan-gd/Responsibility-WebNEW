@@ -12,6 +12,7 @@
 - ✅ 地图与热力：全国线路飞线、重庆司机/车辆热力、动态散点
 - ✅ 炫酷登录页：波浪动画 + 渐变背景，轻量登录直达 Dashboard
 - ✅ AI 助手：气泡欢迎、打字机效果、复制/下载聊天记录、预设问题一键提问
+- ✅ 多语言体验:登录页支持一键在中文 / English 间切换
 - ✅ 一键联调：Vite 代理 `/api` → `http://localhost:8080`，CORS 已配好
 
 ## 快速上手
@@ -44,7 +45,7 @@ npm run dev
 - 构建发布：`npm run build` 生成 `dist/`。
 
 ## 主要模块
-- 登录页 `views/Login.vue`：渐变背景 + 波浪动画 + 轻量登录表单（本地校验后跳转 Dashboard）。
+- 登录页 `views/Login.vue`:渐变背景 + 波浪动画 + 轻量登录表单(本地校验后跳转 Dashboard),支持中/英文切换按钮。
 - 仪表盘 `views/Dashboard.vue`：
 	- `AIAssistant.vue`：AI 入口、建议问题、打字机输出、复制/下载/重置。
 	- 左侧 `LeftPanel.vue`：预警次数、发车流量、货运流量图。
@@ -67,4 +68,3 @@ create_drivers_information.txt  # SQL 脚本
 
 ## License
 MIT
-

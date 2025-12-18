@@ -49,6 +49,51 @@ public class DriverService {
     }
 
     /**
+     * 根据ID查询单个司机
+     */
+    public Driver findById(Integer id) {
+        return driverRepository.findById(id);
+    }
+
+    /**
+     * 新增司机
+     */
+    public int addDriver(Driver driver) {
+        // 设置默认值
+        if (driver.getFatigueStatus() == null) {
+            driver.setFatigueStatus("正常");
+        }
+        if (driver.getBehaviorStatus() == null) {
+            driver.setBehaviorStatus("正常驾驶");
+        }
+        if (driver.getEmotionStatus() == null) {
+            driver.setEmotionStatus("平静");
+        }
+        return driverRepository.insert(driver);
+    }
+
+    /**
+     * 更新司机信息
+     */
+    public int updateDriver(Driver driver) {
+        return driverRepository.update(driver);
+    }
+
+    /**
+     * 删除司机
+     */
+    public int deleteDriver(Integer id) {
+        return driverRepository.deleteById(id);
+    }
+
+    /**
+     * 批量删除司机
+     */
+    public int batchDeleteDrivers(List<Integer> ids) {
+        return driverRepository.batchDelete(ids);
+    }
+
+    /**
      * 生成司机数据摘要，用于 AI 提示词
      */
     public String generateDriverDataSummary() {

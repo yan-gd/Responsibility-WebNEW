@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
+import DriverManagement from '../views/DriverManagement.vue'
 
 const routes = [
   {
@@ -16,6 +17,11 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard
+  },
+  {
+    path: '/driver-management',
+    name: 'DriverManagement',
+    component: DriverManagement
   }
 ]
 
