@@ -20,6 +20,8 @@
 	<img alt="API" src="https://img.shields.io/badge/API-/api-2ea44f" />
 </p>
 
+<img src="vue/public/show.png" alt="Responsibility-WebNEW Preview" width="100%" />
+
 **中文** | [English](README.en.md)
 
 </div>
