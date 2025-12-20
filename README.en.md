@@ -4,20 +4,22 @@
 
 A simple Spring Boot + Vue 3 separated frontend/backend project, featuring driver information management, a visualization dashboard, and an AI assistant.
 
+<img src="vue/public/show.png" alt="Responsibility-WebNEW Preview" width="100%" />
+
 <p>
-  <img alt="Java" src="https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white" />
-  <img alt="Spring Boot" src="https://img.shields.io/badge/Spring%20Boot-4.0.0-6DB33F?logo=springboot&logoColor=white" />
-  <img alt="Vue" src="https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white" />
-  <img alt="Vite" src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" />
-  <img alt="ECharts" src="https://img.shields.io/badge/ECharts-6-AA344D?logo=apacheecharts&logoColor=white" />
-  <img alt="MySQL" src="https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white" />
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-black" />
+  <a href="https://openjdk.org/" target="_blank" rel="noopener noreferrer"><img alt="Java" src="https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white" /></a>
+  <a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer"><img alt="Spring Boot" src="https://img.shields.io/badge/Spring%20Boot-4.0.0-6DB33F?logo=springboot&logoColor=white" /></a>
+  <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer"><img alt="Vue" src="https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white" /></a>
+  <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer"><img alt="Vite" src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" /></a>
+  <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer"><img alt="ECharts" src="https://img.shields.io/badge/ECharts-6-AA344D?logo=apacheecharts&logoColor=white" /></a>
+  <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer"><img alt="MySQL" src="https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white" /></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-black" /></a>
 </p>
 
 <p>
-  <img alt="Backend" src="https://img.shields.io/badge/Backend-http://localhost:8080-2ea44f" />
-  <img alt="Frontend" src="https://img.shields.io/badge/Frontend-http://localhost:5173-2ea44f" />
-  <img alt="API" src="https://img.shields.io/badge/API-/api-2ea44f" />
+  <a href="http://localhost:8080" target="_blank" rel="noopener noreferrer"><img alt="Backend" src="https://img.shields.io/badge/Backend-http://localhost:8080-2ea44f" /></a>
+  <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer"><img alt="Frontend" src="https://img.shields.io/badge/Frontend-http://localhost:5173-2ea44f" /></a>
+  <a href="http://localhost:8080/api" target="_blank" rel="noopener noreferrer"><img alt="API" src="https://img.shields.io/badge/API-/api-2ea44f" /></a>
 </p>
 
 **English** | [中文](README.md)
